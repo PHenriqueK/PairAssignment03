@@ -1,11 +1,4 @@
-GENESIS-Tabelle: Temporär
-Tourismus: Beherbergungsbetriebe, Gästebetten,;;;;;
--übernachtungen, -ankünfte - Jahressumme -;;;;;
-regionale Tiefe: Gemeinden, Samt-/Verbandsgemeinden;;;;;
-Monatserhebung im Tourismus;;;;;
-2011;;;;;
-;;Geöffnete Beherbergungsbetriebe;Angebotene Gästebetten;Gästeübernachtungen;Gästeankünfte
-;;Anzahl;Anzahl;Anzahl;Anzahl
+;;Ge_ffnete Beherbergungsbetriebe;Angebotene G_stebetten;G_steÙbernachtungen;G_steankÙnfte
 11;  Berlin;782;121056;22359470;9866088
 11001;        Berlin-Mitte;163;43407;8521586;3880049
 11002;        Berlin-Friedrichshain-Kreuzberg;81;14058;2824425;1209203
@@ -13,69 +6,9 @@ Monatserhebung im Tourismus;;;;;
 11004;        Berlin-Charlottenburg-Wilmersdorf;206;26839;4916599;2119269
 11005;        Berlin-Spandau;31;2642;404052;191516
 11006;        Berlin-Steglitz-Zehlendorf;44;3271;461764;193716
-11007;        Berlin-Tempelhof-Schöneberg;49;7145;1344205;607907
-11008;        Berlin-Neukölln;26;4309;558996;249218
-11009;        Berlin-Treptow-Köpenick;43;3694;494431;244133
+11007;        Berlin-Tempelhof-Sch_neberg;49;7145;1344205;607907
+11008;        Berlin-Neuk_lln;26;4309;558996;249218
+11009;        Berlin-Treptow-K_penick;43;3694;494431;244133
 11010;        Berlin-Marzahn-Hellersdorf;21;1221;163066;65148
 11011;        Berlin-Lichtenberg;27;4745;834327;351977
 11012;        Berlin-Reinickendorf;36;3562;623081;269803
-_____
-zu  gesamter Tabelle
-Abweichungen zu anderen Veröffentlichungen ergeben sich ggf.
-"durch nachträgliche Korrekturen; diese sind auch nicht in"
-das Bundesergebnis eingeflossen und somit ergibt die Summe
-der Länderergebnisse ggf. nicht den Wert für Deutschland.
-Ab 2012 Beherbergungsbetriebe mit 10 oder mehr
-Schlafgelegenheiten.
-Baden-Württemberg: Berichtsjahr 2008-2010 Gebietsstand
-"01.01.2009; ab Berichtsjahr 2011 Gebietsstand 01.01.2011"
-Deutschland:
-Bis 2011: Übernachtungen in Beherbergungsbetrieben mit 9 und
-mehr Schlafgelegenheiten bzw. auf Campingplätzen mit 3 und
-mehr Stellplätzen.
-Ab 2012: Übernachtungen in Beherbergungsbetrieben mit 10 und
-mehr Schlafgelegenheiten bzw. auf Campingplätzen mit 10 und
-mehr Stellplätzen
-Berlin: Gemeindetabelle liegt auch für Bezirke vor.
-Rheinland-Pfalz: ab 2011 Gebietsstand des Folgejahres.
-Sachsen: 2012 Gebietsstand 01.01.2013
-Sachsen-Anhalt Berichtsjahr 2011 'Gebietsstand 01.01.2011'
-Baden-Württemberg, Saarland, Mecklenburg-Vorpommern (ab
-2009), Niedersachsen (ab 2010), Sachsen-Anhalt (ab 2010):
-"einschl. der Campingplätze;"
-
-zu  Geöffnete Beherbergungsbetriebe
-Beherbergungsbetriebe und Gästebetten jeweils im Juli,
-ausgenommen: Hamburg, Schleswig-Holstein: tatsächlich
-angebotene Gästebetten (Stand 1. Juli)
-Deutschland, Baden-Württemberg, Bayern, Bremen, (Berlin,
-Brandenburg ab 2009), Hessen (ab 2008),
-Mecklenburg-Vorpommern, Niedersachsen, Nordrhein-Westfalen,
-Saarland, Sachsen (ab 2012)Sachsen-Anhalt: einschließlich
-der Campingplätze.
-"Saarland: angebotene Schlafgelegenheiten; es zählen"
-Doppelbetten als 2 Schlafgelegenheiten, für Camping wird 1
-Stellplatz 4 Schlafgelegenheiten umgerechnet.
-
-zu  angebotene Gästebetten
-Deutschland, Mecklenburg-Vorpommern (ab 2009) Hessen (ab
-2008), Sachsen-Anhalt (ab 2010),: einschl. der
-Campingplätze. Hinweis: Seit 2009 werden
-Gästebetten als Schlafgelegenheiten bezeichnet, für Camping
-wird 1 Stellplatz in 4 Schlafangelegenheiten umgerechnet.
-
-zu  Gästeübernachtungen
-Deutschland, Bayern, Bremen, Berlin, (Brandenburg ab 2009),
-Hessen (ab 2008),
-Nordrhein-Westfalen, Sachsen-Anhalt, Sachsen (ab 2012):
-einschl. der Campingplätze
-
-zu  Gästeankünfte
-Deutschland, Bayern, Bremen, Berlin, (Brandenburg ab 2009),
-"Hessen (ab 2008):, Nordrhein-Westfalen, Sachsen-Anhalt;"
-Sachsen (ab 2012): einschl. der Campingplätze
-_____
-(C)opyright Dieses Angebot der Statistischen Ämter des Bundes und der
-Länder ist lizensiert unter der Datenlizenz Deutschland -
-Namensnennung - Version 2.0. Düsseldorf, 2016.
-Stand: 03.11.2016 / 16:50:45

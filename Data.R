@@ -38,9 +38,32 @@ library(rPython)
 
 #Loading Data from "Regionaldatenbank Deutschland"
 
-<<<<<<< Updated upstream
-test01 <- import('https://www.regionalstatistik.de/genesis/online/data/Tabelle01.csv;jsessionid=0E492BFA5C08791DB463EF5123E0D36C?operation=ergebnistabelleDownload&levelindex=2&levelid=1478182953986&option=csv&doDownload=csv&contenttype=csv', format = 'csv')
+StatIS.BBB_2010.2014 <- read.delim("~/GitHub/PairAssignment03/data/StatIS-BBB_2010-2014.csv", header=FALSE)
 
+GENESIS_2010 <- read.table("~/GitHub/PairAssignment03/data/GENESIS_2010.csv", sep=";", quote="\"")
+GENESIS_2011 <- read.table("~/GitHub/PairAssignment03/data/GENESIS_2011.csv", sep=";", quote="\"")
+GENESIS_2012 <- read.table("~/GitHub/PairAssignment03/data/GENESIS_2012.csv", sep=";", quote="\"")
+GENESIS_2013 <- read.table("~/GitHub/PairAssignment03/data/GENESIS_2013.csv", sep=";", quote="\"")
+GENESIS_2014 <- read.table("~/GitHub/PairAssignment03/data/GENESIS_2014.csv", sep=";", quote="\"")
+
+#Renaming multiple columns
+names(GENESIS_2010) <- c("NID", "neighbourhood", "hotels", "beds", "overnight", "visitors")
+GENESIS_2010 <- GENESIS_2010[-1,]
+
+names(GENESIS_2011) <- c("NID", "neighbourhood", "hotels", "beds", "overnight", "visitors")
+GENESIS_2011 <- GENESIS_2011[-1,]
+
+names(GENESIS_2012) <- c("NID", "neighbourhood", "hotels", "beds", "overnight", "visitors")
+GENESIS_2012 <- GENESIS_2012[-1,]
+
+names(GENESIS_2013) <- c("NID", "neighbourhood", "hotels", "beds", "overnight", "visitors") 
+GENESIS_2013 <- GENESIS_2013[-1,]
+
+names(GENESIS_2014) <- c("NID", "neighbourhood", "hotels", "beds", "overnight", "visitors") 
+GENESIS_2014 <- GENESIS_2014[-1,]
+
+
+##### Updated upstream #####
 
 #Import "listings.csv" from insideairbnb.com
 Airbnb_Listings <- read.csv("http://data.insideairbnb.com/germany/be/berlin/2015-10-03/visualisations/listings.csv")
@@ -63,11 +86,6 @@ Reviews_URL <- "http://data.insideairbnb.com/germany/be/berlin/2015-10-03/data/r
 download.file(Reviews_URL, temp)
 Detailed_Reviews <- read.csv(gzfile(temp, "reviews.csv"))
 unlink(temp)
-=======
+#######
 # warm up the curl handle
 start <- GET("https://www.statistik-berlin-brandenburg.de/webapi/jsf/tableView/tableView.xhtml")
-
-# get the cookies
-ck <- handle_cookies(handle_find("https://www.statistik-berlin-brandenburg.de/webapi/jsf/tableView/tableView.xhtml")$handle)
-
->>>>>>> Stashed changes
