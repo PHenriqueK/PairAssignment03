@@ -31,3 +31,28 @@ test01 <- import('https://www.regionalstatistik.de/genesis/online/data/Tabelle01
 
 #Import "listings.csv" from insideairbnb.com
 Airbnb_Listings <- read.csv("http://data.insideairbnb.com/germany/be/berlin/2015-10-03/visualisations/listings.csv")
+
+#Import "reviews.csv" from insideairbnb.com
+Airbnb_Reviews <- read.csv("http://data.insideairbnb.com/germany/be/berlin/2015-10-03/visualisations/reviews.csv")
+
+#Import "neighbourhoods.csv" from inside airbnb.com
+Airbnb_Neighbourhoods <- read.csv("http://data.insideairbnb.com/germany/be/berlin/2015-10-03/visualisations/neighbourhoods.csv")
+
+#Import "listings.csv.gz"
+Listings_URL <- "http://data.insideairbnb.com/germany/be/berlin/2015-10-03/data/listings.csv.gz"
+temp <- tempfile()
+download.file(Listings_URL, temp)
+Detailed_Listings <- read.csv(gzfile(temp, "listings.csv"))
+unlink(temp)
+
+#Import "calendar.csv.gz"
+Calendar_URL <- "http://data.insideairbnb.com/germany/be/berlin/2015-10-03/data/calendar.csv.gz"
+download.file(Calendar_URL, temp)
+Calendar <- read.csv(gzfile(temp, "calendar.csv"))
+unlink(temp)
+
+#Import "reviews.csv.gz"
+Reviews_URL <- "http://data.insideairbnb.com/germany/be/berlin/2015-10-03/data/reviews.csv.gz"
+download.file(Reviews_URL, temp)
+Detailed_Reviews <- read.csv(gzfile(temp, "reviews.csv"))
+unlink(temp)
