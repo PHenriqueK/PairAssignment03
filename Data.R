@@ -45,12 +45,6 @@ download.file(Listings_URL, temp)
 Detailed_Listings <- read.csv(gzfile(temp, "listings.csv"))
 unlink(temp)
 
-#Import "calendar.csv.gz"
-Calendar_URL <- "http://data.insideairbnb.com/germany/be/berlin/2015-10-03/data/calendar.csv.gz"
-download.file(Calendar_URL, temp)
-Calendar <- read.csv(gzfile(temp, "calendar.csv"))
-unlink(temp)
-
 #Import "reviews.csv.gz"
 Reviews_URL <- "http://data.insideairbnb.com/germany/be/berlin/2015-10-03/data/reviews.csv.gz"
 download.file(Reviews_URL, temp)
