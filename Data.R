@@ -33,35 +33,29 @@ library(curl)
 library(xml2)
 library(httr)
 library(rvest)
-library(stringi)
-library(rPython)
+library(DataCombine)
 
 #Loading Data from "Regionaldatenbank Deutschland"
 
-StatIS.BBB_2010.2014 <- read.delim("~/GitHub/PairAssignment03/data/StatIS-BBB_2010-2014.csv", header=FALSE)
+SBB_overnights_2010 <- read.csv("~/GitHub/PairAssignment03/data/SBB_overnights_2010.csv", sep=";")
+SBB_overnights_2011 <- read.csv("~/GitHub/PairAssignment03/data/SBB_overnights_2011.csv", sep=";")
+SBB_overnights_2012 <- read.csv("~/GitHub/PairAssignment03/data/SBB_overnights_2012.csv", sep=";")
+SBB_overnights_2013 <- read.csv("~/GitHub/PairAssignment03/data/SBB_overnights_2013.csv", sep=";")
+SBB_overnights_2014 <- read.csv("~/GitHub/PairAssignment03/data/SBB_overnights_2014.csv", sep=";")
+SBB_overnights_2015 <- read.csv("~/GitHub/PairAssignment03/data/SBB_overnights_2015.csv", sep=";")
 
-GENESIS_2010 <- read.table("~/GitHub/PairAssignment03/data/GENESIS_2010.csv", sep=";", quote="\"")
-GENESIS_2011 <- read.table("~/GitHub/PairAssignment03/data/GENESIS_2011.csv", sep=";", quote="\"")
-GENESIS_2012 <- read.table("~/GitHub/PairAssignment03/data/GENESIS_2012.csv", sep=";", quote="\"")
-GENESIS_2013 <- read.table("~/GitHub/PairAssignment03/data/GENESIS_2013.csv", sep=";", quote="\"")
-GENESIS_2014 <- read.table("~/GitHub/PairAssignment03/data/GENESIS_2014.csv", sep=";", quote="\"")
+SBB_guests_2010 <- read.csv("~/GitHub/PairAssignment03/data/SBB_guests_2010.csv", sep=";")
+SBB_guests_2011 <- read.csv("~/GitHub/PairAssignment03/data/SBB_guests_2011.csv", sep=";")
+SBB_guests_2012 <- read.csv("~/GitHub/PairAssignment03/data/SBB_guests_2012.csv", sep=";")
+SBB_guests_2013 <- read.csv("~/GitHub/PairAssignment03/data/SBB_guests_2013.csv", sep=";")
+SBB_guests_2014 <- read.csv("~/GitHub/PairAssignment03/data/SBB_guests_2014.csv", sep=";")
+SBB_guests_2015 <- read.csv("~/GitHub/PairAssignment03/data/SBB_guests_2015.csv", sep=";")
 
-#Renaming multiple columns
-names(GENESIS_2010) <- c("NID", "neighbourhood", "hotels", "beds", "overnight", "visitors")
-GENESIS_2010 <- GENESIS_2010[-1,]
-
-names(GENESIS_2011) <- c("NID", "neighbourhood", "hotels", "beds", "overnight", "visitors")
-GENESIS_2011 <- GENESIS_2011[-1,]
-
-names(GENESIS_2012) <- c("NID", "neighbourhood", "hotels", "beds", "overnight", "visitors")
-GENESIS_2012 <- GENESIS_2012[-1,]
-
-names(GENESIS_2013) <- c("NID", "neighbourhood", "hotels", "beds", "overnight", "visitors") 
-GENESIS_2013 <- GENESIS_2013[-1,]
-
-names(GENESIS_2014) <- c("NID", "neighbourhood", "hotels", "beds", "overnight", "visitors") 
-GENESIS_2014 <- GENESIS_2014[-1,]
-
+GENESIS_2010 <- read.csv("~/GitHub/PairAssignment03/data/GENESIS_2010.csv", sep=";", quote="\"")
+GENESIS_2011 <- read.csv("~/GitHub/PairAssignment03/data/GENESIS_2011.csv", sep=";", quote="\"")
+GENESIS_2012 <- read.csv("~/GitHub/PairAssignment03/data/GENESIS_2012.csv", sep=";", quote="\"")
+GENESIS_2013 <- read.csv("~/GitHub/PairAssignment03/data/GENESIS_2013.csv", sep=";", quote="\"")
+GENESIS_2014 <- read.csv("~/GitHub/PairAssignment03/data/GENESIS_2014.csv", sep=";", quote="\"")
 
 ##### Updated upstream #####
 
