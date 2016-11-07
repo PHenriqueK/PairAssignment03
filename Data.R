@@ -17,6 +17,7 @@ getwd()
 
 # Load Packages: credits to Wickham Hadley, Xie Yihui, Frank Harrell Jr, Philippe Grosejan & Frederic Ibanez
 # (install when needed)
+
 library(ggplot2)
 library(knitr)
 library(pastecs)
@@ -34,28 +35,16 @@ library(xml2)
 library(httr)
 library(rvest)
 library(DataCombine)
+library(tidyr)
 
 #Loading Data from "Regionaldatenbank Deutschland"
+GENESIS_2010 <- read.csv("~/GitHub/PairAssignment03/data/GENESIS_2010.csv", sep=";", quote="\"", stringsAsFactors = FALSE)
+GENESIS_2011 <- read.csv("~/GitHub/PairAssignment03/data/GENESIS_2011.csv", sep=";", quote="\"", stringsAsFactors = FALSE)
+GENESIS_2012 <- read.csv("~/GitHub/PairAssignment03/data/GENESIS_2012.csv", sep=";", quote="\"", stringsAsFactors = FALSE)
+GENESIS_2013 <- read.csv("~/GitHub/PairAssignment03/data/GENESIS_2013.csv", sep=";", quote="\"", stringsAsFactors = FALSE)
+GENESIS_2014 <- read.csv("~/GitHub/PairAssignment03/data/GENESIS_2014.csv", sep=";", quote="\"", stringsAsFactors = FALSE)
 
-SBB_overnights_2010 <- read.csv("~/GitHub/PairAssignment03/data/SBB_overnights_2010.csv", sep=";")
-SBB_overnights_2011 <- read.csv("~/GitHub/PairAssignment03/data/SBB_overnights_2011.csv", sep=";")
-SBB_overnights_2012 <- read.csv("~/GitHub/PairAssignment03/data/SBB_overnights_2012.csv", sep=";")
-SBB_overnights_2013 <- read.csv("~/GitHub/PairAssignment03/data/SBB_overnights_2013.csv", sep=";")
-SBB_overnights_2014 <- read.csv("~/GitHub/PairAssignment03/data/SBB_overnights_2014.csv", sep=";")
-SBB_overnights_2015 <- read.csv("~/GitHub/PairAssignment03/data/SBB_overnights_2015.csv", sep=";")
-
-SBB_guests_2010 <- read.csv("~/GitHub/PairAssignment03/data/SBB_guests_2010.csv", sep=";")
-SBB_guests_2011 <- read.csv("~/GitHub/PairAssignment03/data/SBB_guests_2011.csv", sep=";")
-SBB_guests_2012 <- read.csv("~/GitHub/PairAssignment03/data/SBB_guests_2012.csv", sep=";")
-SBB_guests_2013 <- read.csv("~/GitHub/PairAssignment03/data/SBB_guests_2013.csv", sep=";")
-SBB_guests_2014 <- read.csv("~/GitHub/PairAssignment03/data/SBB_guests_2014.csv", sep=";")
-SBB_guests_2015 <- read.csv("~/GitHub/PairAssignment03/data/SBB_guests_2015.csv", sep=";")
-
-GENESIS_2010 <- read.csv("~/GitHub/PairAssignment03/data/GENESIS_2010.csv", sep=";", quote="\"")
-GENESIS_2011 <- read.csv("~/GitHub/PairAssignment03/data/GENESIS_2011.csv", sep=";", quote="\"")
-GENESIS_2012 <- read.csv("~/GitHub/PairAssignment03/data/GENESIS_2012.csv", sep=";", quote="\"")
-GENESIS_2013 <- read.csv("~/GitHub/PairAssignment03/data/GENESIS_2013.csv", sep=";", quote="\"")
-GENESIS_2014 <- read.csv("~/GitHub/PairAssignment03/data/GENESIS_2014.csv", sep=";", quote="\"")
+SBB_2010_2015 <- read.csv("~/GitHub/PairAssignment03/data/SBB_2010_2015.csv", sep=";", stringsAsFactors = FALSE)
 
 ##### Updated upstream #####
 
