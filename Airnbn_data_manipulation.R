@@ -21,7 +21,9 @@ Detailed_Listings <- Detailed_Listings[, c("id", "name", "host_id", "host_name",
                                            "availability_365")]
 names(Detailed_Listings)
 
-January_2010_Pankow <- Detailed_Listings[ which(Detailed_Listings$neighbourhood_group_cleansed=="Pankow" & Detailed_Listings$host_since < "2011-02-01"), ]
+January_2010_Pankow <- Detailed_Listings[ which(Detailed_Listings$neighbourhood_group_cleansed=="Pankow" & Detailed_Listings$host_since=="2010"), ]
+
+January_2010_Pankow <- subset(Detailed_Listings, Detailed_Listings$neighbourhood_group_cleansed=="Pankow" & Detailed_Listings$host_since==("2010-01-01":"2010-02-01"))
 
 host_since <- as.Date(Detailed_Listings$host_since)
 
