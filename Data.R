@@ -19,6 +19,7 @@ getwd()
 # (install when needed)
 
 library(ggplot2)
+library(lubridate)
 library(knitr)
 library(pastecs)
 library(Hmisc)
@@ -32,10 +33,11 @@ library(ggvis)
 library(knitr)
 library(curl)
 library(xml2)
-library(httr)
+library(plyr)
 library(rvest)
 library(DataCombine)
 library(tidyr)
+library(data.table)
 
 #Loading Data from "Regionaldatenbank Deutschland"
 GENESIS_2010 <- read.csv("~/GitHub/PairAssignment03/data/GENESIS_2010.csv", sep=";", quote="\"", stringsAsFactors = FALSE)
@@ -45,8 +47,6 @@ GENESIS_2013 <- read.csv("~/GitHub/PairAssignment03/data/GENESIS_2013.csv", sep=
 GENESIS_2014 <- read.csv("~/GitHub/PairAssignment03/data/GENESIS_2014.csv", sep=";", quote="\"", stringsAsFactors = FALSE)
 
 SBB_2010_2015 <- read.csv("~/GitHub/PairAssignment03/data/SBB_2010_2015.csv", sep=";", stringsAsFactors = FALSE)
-
-##### Updated upstream #####
 
 #Import "listings.csv" from insideairbnb.com
 Airbnb_Listings <- read.csv("http://data.insideairbnb.com/germany/be/berlin/2015-10-03/visualisations/listings.csv")
@@ -69,6 +69,3 @@ Reviews_URL <- "http://data.insideairbnb.com/germany/be/berlin/2015-10-03/data/r
 download.file(Reviews_URL, temp)
 Detailed_Reviews <- read.csv(gzfile(temp, "reviews.csv"))
 unlink(temp)
-#######
-# warm up the curl handle
-start <- GET("https://www.statistik-berlin-brandenburg.de/webapi/jsf/tableView/tableView.xhtml")
