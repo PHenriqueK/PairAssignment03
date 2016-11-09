@@ -24,12 +24,22 @@ test1 <- Detailed_Listings ## this was just for testing purposes to avoid to rel
 test1 <- test1[, c("id", "host_id", "host_since",
                                            "neighbourhood_group_cleansed", 
                                            "room_type",
-                                           "beds",
+                                           "beds", "first_review",
                                             "last_review")]
 
-test1 <- mutate(test1, date = ymd(test1$host_since), host_since_day = day(date), 
-       host_since_month = month(date), host_since_year = year(date))
+test1 <- test1[!(test1$host_since == "" | is.na(test1$host_since)), ] ##Attention! There are some missing host_since dates in our data: what should we do with them?
 
+test1 <- mutate(test1, date = ymd(test1$host_since), host_since_day = day(date), 
+       host_since_month = month(date), host_since_year = year(date)) ##spliting host_since date up into its elements
+
+test1$host_since_month <- as.Date(test1$host_since_month, "%m")
+
+##
+
+##create a new yy-mm variable
+test1$year_month <- as.character(paste(test1$host_since_year, test1$host_since_month, sep = "-" ))
+
+test1$YM <- as.Date(test1$year_month, format="%Y%m") ##doesnt seem to work
 
 ##create a unique neighbourhood ID (NID)
 test1$NID [test1$neighbourhood_group_cleansed == "Mitte"] <- 1
@@ -45,18 +55,17 @@ test1$NID [test1$neighbourhood_group_cleansed == "Marzahn - Hellersdorf"] <- 10
 test1$NID [test1$neighbourhood_group_cleansed == "Lichtenberg"] <- 11
 test1$NID [test1$neighbourhood_group_cleansed == "Reinickendorf"] <- 12
 
-#reorder data
-test1 <- test1[order( test1$NID, test1$host_since_year, test1$host_since_month, decreasing = FALSE), ]
-
-# count # of apts per month per year per district
-test_macro <- count(test2, c("NID", "host_since_year", "host_since_month"))
+# count # of new apts per month per year per district
+test_macro <- count(test1, c("NID", "year_month"))
 
 #rename columns for merging
-names(test_macro) <- c("NID", "year", "month", "apt_supply")
+names(test_macro) <- c("NID", "year_month", "apt_new")
 
-test_FSO <- FSO_merge
+#reorder data
+test_macro <- test_macro[order(test_macro$NID, test_macro$year_month, decreasing = FALSE), ]
 
-total_merge <- merge(test_FSO, test_macro, by=c("NID", "year", "month"))
+test_macro$sum <- ave(test_macro$apt_new, test_macro$NID, test_macro$year_month, FUN=sum)
+
 
 ###################### Dan's stuff
 
