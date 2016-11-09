@@ -4,7 +4,7 @@ author: "Daniel J Murphy & Paulo Kalkhake"
 date: "November 9, 2016"
 output: pdf_document
 toc: FALSE
-bibliography:
+bibliography: Bibliography.bib
 linestretch: 1.5
 number_sections: TRUE
 ---
@@ -50,7 +50,7 @@ Taking the arguments above into account, our main specification for our proposal
 
 > (1) ${\log OccupRate}_{it} = \beta _i * \log Abb_{it} + \tau _i + \beta _j * X_j + \varepsilon _{it}$
 
-Here, log *OccupRate* is the occupancy rate for all hotels in district *i* at time *t*. Log *Abb* is the log of the approximated total number of Airbnb listings available in district *i* at time *t*. Further, we control for economic conditions specific to each neighbourhood (unemployment rate and income) and a district-specific linear time trend to account for unobserved heterogeneous variation across districts by using a month-year time dummy *$\tau$*.
+Here, log *OccupRate* is the occupancy rate for all hotels in district *i* at time *t*. Log *Abb* is the log of the approximated total number of Airbnb listings available in district *i* at time *t*. We take the log of each of these variables in order to normalize their distribution. Next, we control for economic conditions specific to each neighbourhood (unemployment rate and income) and a district-specific linear time trend to account for unobserved heterogeneous variation across districts by using a month-year time dummy *$\tau$*.
 
 ## Analysis
 
