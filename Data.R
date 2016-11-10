@@ -12,13 +12,12 @@ rm(list=ls())
 
 # Set working directory
 try(setwd("/Users/Paulo/GitHub/PairAssignment03"),silent=TRUE)
-try(setwd("/Users/djm113/Documents/GitHub/PairAssignment03"),silent=TRUE)
+try(setwd("/Users/djm113/Documents/GitHub/PairAssignment03/"),silent=TRUE)
 getwd()
 
 # Load Packages: credits to Wickham Hadley, Xie Yihui, Frank Harrell Jr, Philippe Grosejan & Frederic Ibanez
 # (install when needed)
 
-library(dplyr)
 library(ggplot2)
 library(lubridate)
 library(knitr)
@@ -35,34 +34,16 @@ library(plyr)
 library(DataCombine)
 library(tidyr)
 library(data.table)
+library(dplyr)
+library(zoo)
 
 #Loading Data from "Regionaldatenbank Deutschland"
-GENESIS_2010 <- read.csv("~/GitHub/PairAssignment03/data/GENESIS_2010.csv", sep=";", quote="\"", stringsAsFactors = FALSE)
-GENESIS_2011 <- read.csv("~/GitHub/PairAssignment03/data/GENESIS_2011.csv", sep=";", quote="\"", stringsAsFactors = FALSE)
-GENESIS_2012 <- read.csv("~/GitHub/PairAssignment03/data/GENESIS_2012.csv", sep=";", quote="\"", stringsAsFactors = FALSE)
-GENESIS_2013 <- read.csv("~/GitHub/PairAssignment03/data/GENESIS_2013.csv", sep=";", quote="\"", stringsAsFactors = FALSE)
-GENESIS_2014 <- read.csv("~/GitHub/PairAssignment03/data/GENESIS_2014.csv", sep=";", quote="\"", stringsAsFactors = FALSE)
+GENESIS_2010 <- read.csv("data/GENESIS_2010.csv", sep=";", quote="\"", stringsAsFactors = FALSE)
+GENESIS_2011 <- read.csv("data/GENESIS_2011.csv", sep=";", quote="\"", stringsAsFactors = FALSE)
+GENESIS_2012 <- read.csv("data/GENESIS_2012.csv", sep=";", quote="\"", stringsAsFactors = FALSE)
+GENESIS_2013 <- read.csv("data/GENESIS_2013.csv", sep=";", quote="\"", stringsAsFactors = FALSE)
+GENESIS_2014 <- read.csv("data/GENESIS_2014.csv", sep=";", quote="\"", stringsAsFactors = FALSE)
 
-SBB_2010_2015 <- read.csv("~/GitHub/PairAssignment03/data/SBB_2010_2015.csv", sep=";", stringsAsFactors = FALSE)
-
-#Import "listings.csv" from insideairbnb.com
-Airbnb_Listings <- read.csv("http://data.insideairbnb.com/germany/be/berlin/2015-10-03/visualisations/listings.csv")
-
-#Import "reviews.csv" from insideairbnb.com
-Airbnb_Reviews <- read.csv("http://data.insideairbnb.com/germany/be/berlin/2015-10-03/visualisations/reviews.csv")
-
-#Import "neighbourhoods.csv" from inside airbnb.com
-Airbnb_Neighbourhoods <- read.csv("http://data.insideairbnb.com/germany/be/berlin/2015-10-03/visualisations/neighbourhoods.csv")
-
-#Import "listings.csv.gz"
-Listings_URL <- "http://data.insideairbnb.com/germany/be/berlin/2015-10-03/data/listings.csv.gz"
-temp <- tempfile()
-download.file(Listings_URL, temp)
-Detailed_Listings <- read.csv(gzfile(temp, "listings.csv"))
-unlink(temp)
-
-#Import "reviews.csv.gz"
-Reviews_URL <- "http://data.insideairbnb.com/germany/be/berlin/2015-10-03/data/reviews.csv.gz"
-download.file(Reviews_URL, temp)
-Detailed_Reviews <- read.csv(gzfile(temp, "reviews.csv"))
-unlink(temp)
+SBB_2010_2015 <- read.csv("data/SBB_2010_2015.csv", sep=";", stringsAsFactors = FALSE)
+SBB_unemployment <- read.csv2("data/SBB_unemployment.csv", stringsAsFactors = FALSE)
+SBB_HH_Income <- read.csv2("data/SBB_HH_Income.csv", header = FALSE, stringsAsFactors = FALSE)

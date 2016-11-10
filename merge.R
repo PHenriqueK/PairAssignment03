@@ -7,4 +7,25 @@
 ## What it does: merging cleaned data sets
 ##########################
 
-total_merge <- merge(test_FSO, test_macro, by=c("NID", "year", "month"))
+# Set working directory
+try(setwd("/Users/Paulo/GitHub/PairAssignment03"),silent=TRUE)
+try(setwd("/Users/djm113/Documents/GitHub/PairAssignment03/"),silent=TRUE)
+getwd()
+
+
+#dynamical link
+source('SBB_data_manipulation.R')
+
+#merge data GENE
+FSO_SBB1 <- merge(SBB_2010_2015_merge, GENESIS_merge, by=c("NID", "year"), all.x = TRUE, all.y = TRUE)
+FSO_SBB2 <- merge(FSO_SBB1, SBB_HH_Income_merge, by=c("NID", "year"), all.x = TRUE)
+FSO_SBB <- merge(FSO_SBB2, SBB_unemployment_merge, by=c("NID", "year"), all.x = TRUE)
+
+FSO_SBB <- FSO_SBB[order(FSO_SBB$NID, decreasing = FALSE), ] # order for NID
+
+remove(FSO_SBB1, FSO_SBB2, SBB_2010_2015_merge, SBB_HH_Income_merge, SBB_unemployment_merge, GENESIS_merge)
+
+# calculate hotel occupancy rate per month/year and district
+FSO_SBB$occup_rate <- FSO_SBB$nights/(FSO_SBB$beds*30)
+
+analysis_data <- merge(FSO_SBB, agg_listings_merge, by=c("NID", "year_month"), all.x = TRUE)
