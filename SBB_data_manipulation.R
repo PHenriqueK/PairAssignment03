@@ -105,7 +105,6 @@ SBB_2010_2015$month [SBB_2010_2015$month == "Oktober"] <- 10
 SBB_2010_2015$month [SBB_2010_2015$month == "November"] <- 11
 SBB_2010_2015$month [SBB_2010_2015$month == "Dezember"] <- 12
 
-
 ##filling blanks
 
 SBB_2010_2015$neighbourhood <- Fill(as.character(SBB_2010_2015$neighbourhood))

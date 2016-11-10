@@ -47,10 +47,6 @@ agg_listings <- tally(group_by(listings, NID, year_month))
 
 names(agg_listings) <- c("NID", "year_month", "apt_new")
 
-#cumulative sum of new appartments/month per district
-
-agg_listings$AB_supply <- ave(agg_listings$apt_new, agg_listings$NID, FUN=cumsum)
-
 #ready to merge
 
 agg_listings_merge <- agg_listings
