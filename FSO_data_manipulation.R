@@ -7,8 +7,13 @@
 ## What it does: merging and cleaning different sub-data sets from the German Federal Statistics Office (FSO)
 ##########################
 
+# Set working directory
+try(setwd("/Users/Paulo/GitHub/PairAssignment03"),silent=TRUE)
+try(setwd("/Users/djm113/Documents/GitHub/PairAssignment03/"),silent=TRUE)
+getwd()
+
 # Dynamical Link to Data/Packages R script file
-source('Data.R')
+source('data_airbnb.R')
 
 ##### cleaning & merging GENESIS DATA ######
 
@@ -47,4 +52,3 @@ GENESIS <- GENESIS[order(GENESIS$NID, decreasing = FALSE), ] # order for NID
 GENESIS <- GENESIS[, c(1,2,7,3,4,5,6)]
 remove(GENESIS_2010, GENESIS_2011, GENESIS_2012, GENESIS_2013, GENESIS_2014) #remove unnecessary data subsets
 GENESIS_merge <- GENESIS[, c("NID", "year", "beds")]
-

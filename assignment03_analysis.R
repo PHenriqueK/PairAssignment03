@@ -12,7 +12,6 @@ try(setwd("/Users/Paulo/GitHub/PairAssignment03"),silent=TRUE)
 try(setwd("/Users/djm113/Documents/GitHub/PairAssignment03/"),silent=TRUE)
 getwd()
 
-
 #dynamical link
 source('merge.R')
 
@@ -21,6 +20,7 @@ source('merge.R')
 #analysis_simple$log_ABsupply <- log(analysis_data$AB_supply)
 
 #dropping some variables
+<<<<<<< Updated upstream
 #analysis_simple <- analysis_data[, c("NID", "neighbourhood", "year_month", "occup_rate", "AB_supply", "log_ABsupply", "avg_inc", "ue_rate" )]
 
 
@@ -88,3 +88,6 @@ ggplot(data=analysis_data, aes(x=analysis_data$year, y=analysis_data$beds, fill=
 
 
 
+=======
+analysis_simple <- analysis_data[, c("NID", "neighbourhood", "year_month", "occup_rate", "AB_supply", "log_ABsupply", "avg_inc", "ue_rate" )]
+>>>>>>> Stashed changes

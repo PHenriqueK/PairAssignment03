@@ -7,7 +7,8 @@
 ## What it does: clean inside Airbnb data
 ##########################
 
-source("Data.R")
+# Dynamical Link to Data/Packages R script file
+source('SBB_data_manipulation.R')
 
 listings <- Detailed_Listings ## this was just for testing purposes to avoid to reload the original data all over again every time replace listings by the Detailed_Listings!
 

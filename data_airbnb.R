@@ -7,6 +7,9 @@
 ## What it does: set working directory & load packages & load datasets
 ##########################
 
+#dynamical link
+source('data.R')
+
 #Import "listings.csv" from insideairbnb.com
 #Airbnb_Listings <- read.csv("http://data.insideairbnb.com/germany/be/berlin/2015-10-03/visualisations/listings.csv")
 
