@@ -54,6 +54,9 @@ Here, log *OccupRate* is the occupancy rate for all hotels in district *i* at ti
 
 ## Analysis
 
+###Descriptive Statistics
+Upon plotting Airbnb supply against hotel room occupancy, we were surprised to see a positive correlation. However, upon taking a second look at the @zervas2016rise paper, we realized the importance of accounting for general demand in an area as it becomes more attractive to tourists. @zervas2016rise accomplished this by controlling for passengers listing the local airport as their final destination. We will incorporate a similar statistic in our final analysis, as tourism in Berlin has increased dramatically in recent years. 
+
 (both descriptive and inferential statistics)
 
 
