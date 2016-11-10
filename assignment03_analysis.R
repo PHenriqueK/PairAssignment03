@@ -40,6 +40,11 @@ hist(analysis_simple$AB_supply)
 hist(analysis_simple$log_OccupRate)
 hist(analysis_simple$log_ABsupply)
 
+# dick n dirty multiple regression
+simple_model <- lm(occup_rate ~ log_ABsupply + log(guests) + log(avg_inc) + ue_rate, data=analysis_simple)
+
+summary(simple_model)
+
 # Plotting Airbnb supply against hotel occupancy rates
 qplot(analysis_simple$occup_rate, analysis_simple$AB_supply, data = analysis_simple,
       xlab = "Hotel Occupancy Rate", 
@@ -48,9 +53,9 @@ qplot(analysis_simple$occup_rate, analysis_simple$AB_supply, data = analysis_sim
   geom_smooth(method = "lm", se = FALSE) 
 
 # Plotting log_ABsupply against hotel occupancy rates
-qplot(analysis_simple$occup_rate, analysis_simple$log_ABsupply, data = analysis_simple,
-      xlab = "Hotel Occupancy Rate", 
-      ylab = "Log Airbnb Supply",
+qplot(analysis_simple$log_ABsupply, analysis_simple$occup_rate, data = analysis_simple,
+      xlab = "Log Airbnb Supply",
+      ylab = "Hotel Occupancy Rate",
       main = "The Effect of Airbnb on Hotel Occupancy Rates" ) +
   geom_smooth(method = "lm", se = FALSE) 
 
