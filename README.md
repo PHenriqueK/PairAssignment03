@@ -30,11 +30,17 @@ In addition to this readme file, there are 11 files in this repository.
 In order to successfully run the code, either run the *assignment03_analysis.R* file with the source code, or run the files in the following order. 
 
 > *1. data.R*
+
 > *2. data_airbnb.R*
+
 > *3. FSO_data_manipulation.R*
+
 > *4. SBB_data_manipulation.R*
+
 > *5. airbnb_data_manipulation.R*
+
 > *6. merge.R*
+
 > *7. assignment03_analysis.R*
 
 ### Contact
