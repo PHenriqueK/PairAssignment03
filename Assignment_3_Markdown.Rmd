@@ -24,6 +24,7 @@ library(ggplot2)
 library(grid)
 library(scales)
 library(RColorBrewer)
+library(stargazer)
 
 # Dynamical Link to Data/Packages R script file (takes some time!)
 source("assignment03_analysis.R")
@@ -70,16 +71,7 @@ theme(plot.margin = unit(c(0.35, 0.2, 0.3, 0.35), "cm"))
 
 ```
 
-```{r, echo=FALSE}
-
-ggplot(analysis_simple, aes(x=AB_supply, y=occup_rate)) +
-    geom_point(alpha=0.5, color="#c0392b") +
-    geom_smooth(method = "lm", se = FALSE, color="black", fill="black") +
-    fte_theme() +
-    labs(x="Airbnb Listings", y="Hotel Occupance Rate", title="Effect of Airbnb Listings on Hotel Occupancy Rates (2010 - 2014")
-
-```
-## Introduction
+#Introduction
 While the effects of Airbnb on Berlin apartment prices has generated much discussion, significantly less attention has been paid to Airbnb's effect on the hotel industry. Airbnb claims that they are largely complementary to hotels, since most Airbnb listings are found outside of the main hotel district in a given city. In Berlin for example, 77% of Airbnb listings are outside of the major hotel districts. 
 
 However, a paper by @zervas2016rise found that the rise of Airbnb had a negative effect on hotel revenue in the state of Texas. This shows that, while Airbnb may be complementary, they also compete with the incumbent hotel industry. In this paper we will seek to illustrate the magnitude of the "Airbnb effect" on hotels in Berlin. To that end, two hypotheses will guide our thinking. 
@@ -88,7 +80,7 @@ However, a paper by @zervas2016rise found that the rise of Airbnb had a negative
 
 > *H2: Since Airbnb's listings are concentrated in districts with low hotel density, the effect of substitution will be more pronounced in those districts.*
 
-## Data & Variables
+#Data & Variables
 Our data comes from three different sources, the Statistical Information System Berlin/Brandenburg (SBB) [@Brandenburg:2016aa], the Federal Statistical Office and the statistical offices of the Länder (FSO) ^[Both databases use JAVA-based website, which did not allow direct web scraping. The data was manually downloaded.] [@Germany:2015aa], and *InsideAirbnb.com* [@Airbnb:2016aa]. In order to conduct our analysis we neede to clean, merge and manipulate these data sets. 
 
 From the Statistical Information System Berlin/Brandenburg, we collected monthly data on the number of overnight stays and the number of guests to arrive at their accommodations in the reporting period in Berlin [@Brandenburg:2016aa]. The surveys are carried out at the beginning of each month and refer to the reporting period of the previous month. The results are organized regionally according to districts and municipalities, allowing us to have specific data for each of the twelve districts in Berlin. We also gathered data for yearly household income groups and the number of employed and unemployed people per district. Based on the data, we calculated a yearly average household income and unemployment rate per district.
@@ -101,7 +93,7 @@ Our most significant methodological challenge is the absence of precise listing 
 
 The final data set covers 720 monthly obversations across tewlve districts in Berlin and covers the time period between 2010 and 2014.
 
-##Descriptive Analysis
+#Descriptive Analysis
 Airbnb`s popularity amongst users and hosts has increased substantially since it was founded in August 2008. As Berlin's popularity has increased over that same period, many Berliners began listing apartments on Airbnb. The growth in Airbnb listings has not been equal across all neighbourhoods in Berlin, but it has been positive in every year from 2010 to 2014. That trend has accelerated each year, with more and more Berliners listing apartments on the site. 
 
 ```{r, echo=FALSE}
@@ -130,7 +122,7 @@ ggplot(analysis_simple, aes(x=AB_supply, y=occup_rate)) +
 ```
 
 
-##Inferential Analysis
+#Inferential Analysis
 Thus for further analysis of the data, we included the number of guests per month for each district. 
 
 ```{r, echo=FALSE}
@@ -139,13 +131,14 @@ simple_model <- lm(occup_rate ~ AB_supply + guests, data=analysis_simple)
 
 ```
 
-```{r, eval=TRUE}
+``` {r, results='asis'}
 
-summary(simple_model)
+stargazer(simple_model, header=FALSE, type='latex')
 
 ```
+
 Even when including guests in our model we find that Airbnb supply has a highly significant positive effect on hotel occupancy, with a p-value on the .01% level. This surprised us as well, and warrants further exploration of potential explanations in our final analysis. 
 
-## Bibliography
+#Bibliography
 
 
