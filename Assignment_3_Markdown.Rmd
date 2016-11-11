@@ -11,7 +11,7 @@ number_sections: TRUE
 fig_caption: TRUE
 inline_notes: TRUE
 ---
-nocite: @Zoo:2005
+
 
 
 ```{r setup, include=FALSE}
@@ -111,6 +111,7 @@ Upon plotting Airbnb supply against hotel room occupancy, we were surprised to s
 
 ```{r, echo=FALSE}
 
+<<<<<<< HEAD
 ggplot(analysis_simple, aes(x=AB_supply, y=occup_rate)) +
     geom_point(alpha=0.5, color="#c0392b") +
     geom_smooth(method = "lm", se = FALSE, color="black", fill="black") +
@@ -126,7 +127,11 @@ However, we realized the importance of accounting for general demand in an area 
 
 Thus for an appropriate analysis of the data, tools of multilevel modeling should be used. As stated above, it is reasonable to assume a different intercept for each district. 
 
-## Bibliography
+=======
+\nocite: @Zoo2005, @Dplyr2016, @DataTable2015, @Tidyr2016, @DataCombine2016, @XML2016, @Plyr2011, @Stringr2016, @Rio2016, @Curl2016, @Pastecs2014, @Hmisc2016, @knitr2014, @Lubridate2011, @Ggplot2009}
 
+\newpage
+>>>>>>> origin/master
+## Bibliography
 
 
