@@ -12,11 +12,8 @@ fig_caption: TRUE
 inline_notes: TRUE
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include=TRUE}
 knitr::opts_chunk$set(echo = TRUE, dev = 'pdf')
-
-# Set working directory
-try(setwd("/Users/Paulo/GitHub/PairAssignment03"),silent=TRUE)
 
 #loading graphs packages
 library(ggplot2)
@@ -112,15 +109,11 @@ ggplot(analysis_simple, aes(x=AB_supply, y=occup_rate)) +
 However, we realized the importance of accounting for general demand in an area as it becomes more attractive to tourists. @zervas2016rise accomplished this by controlling for passengers listing the local airport as their final destination. We will incorporate a similar statistic in our final analysis, as tourism in Berlin has increased dramatically in recent years. 
 
 ##Inferential Analysis
-
-<<<<<<< HEAD
 Thus for further analysis of the data, we included the number of guests tools of multilevel modeling should be used. As stated above, it is reasonable to assume a different intercept for each district. 
 
 ```{r, echo=FALSE}
 
 simple_model <- lm(occup_rate ~ AB_supply + guests, data=analysis_simple)
-
-summary(simple_model)
 
 ```
 
@@ -129,7 +122,6 @@ summary(simple_model)
 summary(simple_model)
 
 ```
-=======
 Thus for an appropriate analysis of the data, tools of multilevel modeling should be used. As stated above, it is reasonable to assume a different intercept for each district.
 
 
