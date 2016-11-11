@@ -9,6 +9,8 @@ linestretch: 1.5
 number_sections: TRUE
 inline_notes: TRUE
 ---
+nocite: @Zoo:2005
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)

@@ -1,18 +1,18 @@
 #####################
 ## R source to first pair assignment
 ## Dan Murphy & Paulo Kalkhake
-## Last update: 3 October 2016
+## Last update: 11 November 2016
 ## R version 3.3.1 (2016-06-21) -- "Bug in Your Hair"
 ## Platform: x86_64-apple-darwin13.4.0 (64-bit)
-## What it does: merging and cleaning different sub-data sets from the German Federal Statistics Office (FSO)
+## What it does: merging and cleaning different sub-data sets from the Statistical Office Berlin/Brandenberg
 ##########################
 
 # Dynamical Link to Data/Packages R script file
 source('FSO_data_manipulation.R')
 
-##### cleaning SBB DATA on unemployment #####
+##### Cleaning SBB DATA on unemployment #####
 
-#filling blanks function
+#Creating a blank filling function
 Fill <- function(x,missing="")
 {
   Log <- x != missing
@@ -20,16 +20,17 @@ Fill <- function(x,missing="")
   y[cumsum(Log)]
 }
 
+
 names(SBB_unemployment) <- c("neighbourhood", "year", "totalworkforce", "V2", "jobseeker", "V3")
 
 SBB_unemployment$neighbourhood <- Fill(as.character(SBB_unemployment$neighbourhood))
 
 SBB_unemployment <- SBB_unemployment[, c("neighbourhood", "year", "totalworkforce", "jobseeker")]
 
-##calculation unemployment rate 
+##Calculating the unemployment rate 
 SBB_unemployment$ue_rate <- SBB_unemployment$jobseeker/SBB_unemployment$totalworkforce
 
-##create a unique neighbourhood ID (NID)
+##Creating a unique neighbourhood ID (NID)
 SBB_unemployment$NID [SBB_unemployment$neighbourhood == "Mitte"] <- 1
 SBB_unemployment$NID [SBB_unemployment$neighbourhood == "Friedrichshain-Kreuzberg"] <- 2
 SBB_unemployment$NID [SBB_unemployment$neighbourhood == "Pankow"] <- 3
@@ -43,9 +44,10 @@ SBB_unemployment$NID [SBB_unemployment$neighbourhood == "Marzahn-Hellersdorf"] <
 SBB_unemployment$NID [SBB_unemployment$neighbourhood == "Lichtenberg"] <- 11
 SBB_unemployment$NID [SBB_unemployment$neighbourhood == "Reinickendorf"] <- 12
 
+#Creating ready-to-merge dataset
 SBB_unemployment_merge <- SBB_unemployment[, c("NID", "year", "ue_rate")]
 
-##### cleaning SBB DATA household income #####
+##### Cleaning SBB DATA household income #####
 
 SBB_HH_Income <- SBB_HH_Income[-1,]
 
@@ -56,7 +58,7 @@ names(SBB_HH_Income) <- c("neighbourhood", "year", "inc_500_899", "inc_900_1299"
 
 SBB_HH_Income$neighbourhood <- Fill(as.character(SBB_HH_Income$neighbourhood))
 
-##create a unique neighbourhood ID (NID)
+##Creating a unique neighbourhood ID (NID)
 SBB_HH_Income$NID [SBB_HH_Income$neighbourhood == "Mitte"] <- 1
 SBB_HH_Income$NID [SBB_HH_Income$neighbourhood == "Friedrichshain-Kreuzberg"] <- 2
 SBB_HH_Income$NID [SBB_HH_Income$neighbourhood == "Pankow"] <- 3
@@ -70,7 +72,7 @@ SBB_HH_Income$NID [SBB_HH_Income$neighbourhood == "Marzahn-Hellersdorf"] <- 10
 SBB_HH_Income$NID [SBB_HH_Income$neighbourhood == "Lichtenberg"] <- 11
 SBB_HH_Income$NID [SBB_HH_Income$neighbourhood == "Reinickendorf"] <- 12
 
-#cleaning up income data
+#Cleaning up income data
 SBB_HH_Income$inc_500_899 <- as.numeric(SBB_HH_Income$inc_500_899)
 SBB_HH_Income$inc_900_1299 <- as.numeric(SBB_HH_Income$inc_900_1299)
 SBB_HH_Income$inc_1300_1499 <- as.numeric(SBB_HH_Income$inc_1300_1499)
@@ -79,12 +81,13 @@ SBB_HH_Income$inc_2000_2599 <- as.numeric(SBB_HH_Income$inc_2000_2599)
 SBB_HH_Income$inc_2600_3199 <- as.numeric(SBB_HH_Income$inc_2600_3199)
 SBB_HH_Income$inc_3200plus <- as.numeric(SBB_HH_Income$inc_3200plus)
 
-#creating average income per district (=#ofpeople p. income group*average income p. group according to column names)
-
+#Creating average income per district 
+#Number of people per income group*average income per group according to column names
 SBB_HH_Income$sum <- SBB_HH_Income$inc_500_899 + SBB_HH_Income$inc_900_1299 + SBB_HH_Income$inc_1300_1499 + SBB_HH_Income$inc_1500_1999 + SBB_HH_Income$inc_2000_2599 + SBB_HH_Income$inc_2600_3199 + SBB_HH_Income$inc_3200plus
 SBB_HH_Income$value1 <- SBB_HH_Income$inc_500_899/SBB_HH_Income$sum*((500+899)/2) + SBB_HH_Income$inc_900_1299*((900+1299)/2) + SBB_HH_Income$inc_1300_1499*((1300+1499)/2) + SBB_HH_Income$inc_1500_1999*((1500+1999)/2) + SBB_HH_Income$inc_2000_2599*((2000+2599)/2) + SBB_HH_Income$inc_2600_3199*((2600+3199)/2) + SBB_HH_Income$inc_3200plus*3200
 SBB_HH_Income$avg_inc <- SBB_HH_Income$value1/SBB_HH_Income$sum
 
+#Creating ready to merge dataset
 SBB_HH_Income_merge <- SBB_HH_Income[, c("NID", "year", "avg_inc")]
 
 ##### cleaning SBB DATA on tourism #####
@@ -105,16 +108,14 @@ SBB_2010_2015$month [SBB_2010_2015$month == "Oktober"] <- 10
 SBB_2010_2015$month [SBB_2010_2015$month == "November"] <- 11
 SBB_2010_2015$month [SBB_2010_2015$month == "Dezember"] <- 12
 
-##filling blanks
-
+##Filling in blanks
 SBB_2010_2015$neighbourhood <- Fill(as.character(SBB_2010_2015$neighbourhood))
 SBB_2010_2015$year <- Fill(as.character(SBB_2010_2015$year))
 
-#creating yy-mm time variable
+#Creating a yy-mm time variable
 SBB_2010_2015$year_month <- as.yearmon(paste(SBB_2010_2015$year, SBB_2010_2015$month, sep = "-"))
 
-#creating unique neighbourhood ID
-
+#Creating a unique neighbourhood ID
 SBB_2010_2015$NID <- sapply(strsplit(as.character(SBB_2010_2015$neighbourhood),' '), "[", 1)
 SBB_2010_2015$NID [SBB_2010_2015$NID == "01"] <- 1
 SBB_2010_2015$NID [SBB_2010_2015$NID == "02"] <- 2
@@ -129,7 +130,9 @@ SBB_2010_2015$NID [SBB_2010_2015$NID == "09"] <- 9
 SBB_2010_2015 <- SBB_2010_2015[, c(7,6,1,2,3,4,5)]
 SBB_2010_2015 <- SBB_2010_2015[order(SBB_2010_2015$year_month, decreasing = FALSE), ] # order for NID
 
+#Creating a ready-to-merge dataset
 SBB_2010_2015_merge <- SBB_2010_2015
 
-remove(SBB_HH_Income, SBB_unemployment) #remove unnecessary data subsets
+#Removing unnecessary data subsets
+remove(SBB_HH_Income, SBB_unemployment) 
 
