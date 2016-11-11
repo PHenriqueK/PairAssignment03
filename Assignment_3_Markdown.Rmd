@@ -12,8 +12,12 @@ fig_caption: TRUE
 inline_notes: TRUE
 ---
 
-```{r setup, include=TRUE}
+```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, dev = 'pdf')
+
+# Set working directory
+try(setwd("/Users/Paulo/GitHub/PairAssignment01"),silent=TRUE)
+try(setwd("/Users/djm113/Documents/GitHub/PairAssignment01"),silent=TRUE)
 
 #loading graphs packages
 library(ggplot2)
@@ -89,27 +93,36 @@ Our most significant methodological challenge is the absence of precise listing 
 The final data set covers 720 monthly obversations across tewlve districts in Berlin and covers the time period between 2010 and 2014.
 
 ##Descriptive Analysis
-Airbnb`s popularity amongst users and hosts has increased substantially since it was founded in August 2008. 
+Airbnb`s popularity amongst users and hosts has increased substantially since it was founded in August 2008. As Berlin's popularity has increased over that same period, many Berliners began listing apartments on Airbnb. The growth in Airbnb listings has not been equal across all neighbourhoods in Berlin, but it has been positive in every year from 2010 to 2014. That trend has accelerated each year, with more and more Berliners listing apartments on the site. 
 
 ```{r, echo=FALSE}
+# Creating end of year subset
+NID_Subset <- subset(analysis_simple, analysis_simple$month==12)
+
+ggplot(NID_Subset, aes(x=year, y=AB_supply, group=NID)) +
+    geom_line(alpha=0.5, color="#c0392b") +
+    fte_theme () +
+    labs(x="Year", y="Airbnb Listings", title="Growth of Airbnb Listings in Berlin (2010 - 2014)")
+
 
 ```
 
 
-Upon plotting Airbnb supply against hotel room occupancy, we were surprised to see a clear positive correlation.
+Upon plotting Airbnb supply against hotel room occupancy, we were surprised to see a clear positive correlation. However, we realized the importance of accounting for general demand in an area as it becomes more attractive to tourists. @zervas2016rise accomplished this by controlling for passengers listing the local airport as their final destination. We will incorporate a similar statistic in our final analysis, as tourism in Berlin has increased dramatically in recent years. Given confirmation from Zervas et al. that Airbnb does indeed compete with hotels, we believe that this increase in Berlin's popularity is largely responsible for the positive correlation we observe here.
 
 ```{r, echo=FALSE}
+
 ggplot(analysis_simple, aes(x=AB_supply, y=occup_rate)) +
     geom_point(alpha=0.5, color="#c0392b") +
     geom_smooth(method = "lm", se = FALSE, color="black", fill="black") +
     fte_theme() +
-    labs(x="Airbnb Listings", y="Hotel Occupance Rate", title="Effect of Airbnb Listings on Hotel Occupancy Rates")
+    labs(x="Airbnb Listings", y="Hotel Occupance Rate", title="Effect of Airbnb Listings on Hotel Occupancy Rates (2010 - 2014")
+
 ```
 
-However, we realized the importance of accounting for general demand in an area as it becomes more attractive to tourists. @zervas2016rise accomplished this by controlling for passengers listing the local airport as their final destination. We will incorporate a similar statistic in our final analysis, as tourism in Berlin has increased dramatically in recent years. 
 
 ##Inferential Analysis
-Thus for further analysis of the data, we included the number of guests tools of multilevel modeling should be used. As stated above, it is reasonable to assume a different intercept for each district. 
+Thus for further analysis of the data, we included the number of guests per month for each district. 
 
 ```{r, echo=FALSE}
 
@@ -117,15 +130,12 @@ simple_model <- lm(occup_rate ~ AB_supply + guests, data=analysis_simple)
 
 ```
 
-```{r, echo=TRUE}
+```{r, eval=TRUE}
 
 summary(simple_model)
 
 ```
-Thus for an appropriate analysis of the data, tools of multilevel modeling should be used. As stated above, it is reasonable to assume a different intercept for each district.
-
-
->>>>>>> origin/master
+Even when including guests in our model we find that Airbnb supply has a highly significant positive effect on hotel occupancy, with a p-value on the .01% level. This surprised us as well, and warrants further exploration of potential explanations in our final analysis. 
 
 ## Bibliography
 
