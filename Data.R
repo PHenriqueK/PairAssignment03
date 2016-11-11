@@ -10,7 +10,7 @@
 # remove objects from the specified environment
 rm(list=ls())  
 
-# Load Packages: credits to Wickham Hadley, Xie Yihui, Frank Harrell Jr, Philippe Grosejan & Frederic Ibanez
+# Load Packages: credits to Wickham Hadley, Xie Yihui, Frank Harrell Jr, Philippe Grosejan & Frederic Ibanez and others
 # (install when needed)
 
 library(ggplot2)

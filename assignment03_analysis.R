@@ -29,9 +29,6 @@ analysis_simple <- data_2010_2014[, c("NID", "neighbourhood", "year_month", "yea
 #log Airbnb Apt Supply (simple model)
 analysis_simple$log_ABsupply <- log(analysis_simple$AB_supply)
 
-# Adding log Hotel occupancy to analysis_data
-analysis_simple$log_OccupRate <-  log(analysis_simple$occup_rate)
-
 # Histograms
 hist(analysis_simple$occup_rate)
 hist(analysis_simple$AB_supply)
