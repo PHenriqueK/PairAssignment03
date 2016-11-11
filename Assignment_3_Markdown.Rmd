@@ -12,14 +12,11 @@ fig_caption: TRUE
 inline_notes: TRUE
 ---
 
-
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, dev = 'pdf')
 
 # Set working directory
 try(setwd("/Users/Paulo/GitHub/PairAssignment03"),silent=TRUE)
-try(setwd("/Users/djm113/Documents/GitHub/PairAssignment03"),silent=TRUE)
 
 #loading graphs packages
 library(ggplot2)
@@ -99,25 +96,17 @@ Airbnb`s popularity amongst users and hosts has increased substantially since it
 
 ```{r, echo=FALSE}
 
-ggplot(analysis_simple, aes(x=year_month, y=guest)) +
-    geom_line(aes(y=line1),size=1.6)
-    fte_theme() +
-    labs(x="Airbnb Listings", y="Hotel Occupance Rate", title="Effect of Airbnb Listings on Hotel Occupancy Rates"),
-
 ```
 
 
 Upon plotting Airbnb supply against hotel room occupancy, we were surprised to see a clear positive correlation.
 
 ```{r, echo=FALSE}
-
-<<<<<<< HEAD
 ggplot(analysis_simple, aes(x=AB_supply, y=occup_rate)) +
     geom_point(alpha=0.5, color="#c0392b") +
     geom_smooth(method = "lm", se = FALSE, color="black", fill="black") +
     fte_theme() +
     labs(x="Airbnb Listings", y="Hotel Occupance Rate", title="Effect of Airbnb Listings on Hotel Occupancy Rates")
-
 ```
 
 
@@ -125,13 +114,22 @@ However, we realized the importance of accounting for general demand in an area 
 
 ##Inferential Analysis
 
-Thus for an appropriate analysis of the data, tools of multilevel modeling should be used. As stated above, it is reasonable to assume a different intercept for each district. 
+Thus for further analysis of the data, we included the number of guests tools of multilevel modeling should be used. As stated above, it is reasonable to assume a different intercept for each district. 
 
-=======
-\nocite: @Zoo2005, @Dplyr2016, @DataTable2015, @Tidyr2016, @DataCombine2016, @XML2016, @Plyr2011, @Stringr2016, @Rio2016, @Curl2016, @Pastecs2014, @Hmisc2016, @knitr2014, @Lubridate2011, @Ggplot2009}
+```{r, echo=FALSE}
 
-\newpage
->>>>>>> origin/master
+simple_model <- lm(occup_rate ~ AB_supply + guests, data=analysis_simple)
+
+summary(simple_model)
+
+```
+
+```{r, echo=TRUE}
+
+summary(simple_model)
+
+```
+
 ## Bibliography
 
 
