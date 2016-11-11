@@ -13,11 +13,11 @@ inline_notes: TRUE
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, dev = 'pdf')
+knitr::opts_chunk$set(echo = FALSE, dev = 'pdf')
 
 # Set working directory
-try(setwd("/Users/Paulo/GitHub/PairAssignment01"),silent=TRUE)
-try(setwd("/Users/djm113/Documents/GitHub/PairAssignment01"),silent=TRUE)
+try(setwd("/Users/Paulo/GitHub/PairAssignment03"),silent=TRUE)
+try(setwd("/Users/djm113/Documents/GitHub/PairAssignment03"),silent=TRUE)
 
 #loading graphs packages
 library(ggplot2)
@@ -26,7 +26,7 @@ library(scales)
 library(RColorBrewer)
 
 # Dynamical Link to Data/Packages R script file (takes some time!)
-# source("assignment03_analysis.R")
+source("assignment03_analysis.R")
 
 ##create a theme for all graphs (courtesy of Max Wolf)
 fte_theme <- function() {
@@ -70,6 +70,15 @@ theme(plot.margin = unit(c(0.35, 0.2, 0.3, 0.35), "cm"))
 
 ```
 
+```{r, echo=FALSE}
+
+ggplot(analysis_simple, aes(x=AB_supply, y=occup_rate)) +
+    geom_point(alpha=0.5, color="#c0392b") +
+    geom_smooth(method = "lm", se = FALSE, color="black", fill="black") +
+    fte_theme() +
+    labs(x="Airbnb Listings", y="Hotel Occupance Rate", title="Effect of Airbnb Listings on Hotel Occupancy Rates (2010 - 2014")
+
+```
 ## Introduction
 While the effects of Airbnb on Berlin apartment prices has generated much discussion, significantly less attention has been paid to Airbnb's effect on the hotel industry. Airbnb claims that they are largely complementary to hotels, since most Airbnb listings are found outside of the main hotel district in a given city. In Berlin for example, 77% of Airbnb listings are outside of the major hotel districts. 
 
