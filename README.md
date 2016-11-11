@@ -1,38 +1,41 @@
-#Second Pair Assignment for Introduction to Collaborative Social Science Data Analysis (MPP-E1180)
+#Third Pair Assignment for Introduction to Collaborative Social Science Data Analysis (MPP-E1180)
 
 Dan Murphy & Paulo Kalkhake
 
-Latest Update: October 28, 2016
+Latest Update: November 11, 2016
 
 ##The Effect of Airbnb's Market Entry on Hotels in Berlin: A Regression Discontinuity Approach.
 
-##Pair Assignment 3
+###Project Background
 
-In the third pair assignment you will gather web based data from at least two sources, merge the data sets, conduct basic inferential statistics on the data to address a relevant research question and briefly describe the results including with dynamically generated tables and figures. Students are encouraged to access data and perform statistical analyses with an eye to answering questions relevant for their Collaborative Research Project. Deadline: 11 November. The write up should be 1,500 words maximum and use literate programming, 10% of final grade.
+This repository contains the material for the Third Pair Assignment in Introduction to Collaborative Social Science Data Analysis (MPP-E1180) @HSoG Berlin. Here, we gather, clean, and merge all of the relevant data for our final project. We also illustrate the data with descriptive statistics and a basic inferential model. In our paper, we will seek to illustrate the magnitude of the "Airbnb effect" on hotels in Berlin, using a Regression Discontinuity Model (RDM).
 
-**Purpose**: Gather, clean, and (begin to) analyse data
+###Repository Files
 
-**Deadline**: 11 November
+In addition to this readme file, there are 11 files in this repository.
 
-You will submit a GitHub repo that:
+| File                    | Description |
+| ----------------------- | --------------------- | 
+| Assignment_3_Markdown.Rmd    | Markdown document that contains the assignment in raw form | 
+| Assignment_3_Markdown.pdf  | Assignment in pdf format  |
+| assignment03_analysis.R  | Statistical analysis of cleaned and merged data  |
+| merge.R  | Merges all of the cleaned data sets  |
+| data.R | Loads packages and Berlin/Brandenburg data  |
+| data_airbnb.R | Loads Airbnb data  |
+| SBB_data_manipulation.R | Cleans Statistical Office of Berlin/Brandenburg data  |
+| FSO_data_manipulation.R | Cleans Federal Statistics Office data  |
+| airbnb_data_manipulation.R | Cleans Airbnb data  |
+| Bibliography.bib | Relevant references in BibTeX format |
 
-- Gathers web-based data from at least **two sources**. Cleans and merges the
-data so that it is ready for statistical analyses.
+In order to successfully run the code, either run the *assignment03_analysis.R* file with the source code, or run the files in the following order. 
 
-- Conducts basic descriptive statistics with the data to 
-address a relevant research question. Could include inferential stats.
+> *1. data.R*
+> *2. data_airbnb.R*
+> *3. FSO_data_manipulation.R*
+> *4. SBB_data_manipulation.R*
+> *5. airbnb_data_manipulation.R*
+> *6. merge.R*
+> *7. assignment03_analysis.R*
 
-- Briefly describes the results including with **dynamically** generated tables 
-and figures.
-
-- Has a write up of **1,500 words maximum** that describes the data gathering 
-and analysis, It also will use literate programming.
-
-## Assignment 3
-
-<br>
-<br>
-<br>
-
-This is ideally a **good first run** at the data gathering and analysis parts of
-your final project.
+### Contact
+Comments and feedback are encouraged, and can be sent to [Paulo Kalkhake](mailto: p.kalkhake@mpp.hertie-school.org(p.kalkhake@mpp.hertie-school.org)) or [Dan Murphy](mailto:d.murphy@mpp.hertie-school.org(d.murphy@mpp.hertie-school.org)).
