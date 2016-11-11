@@ -1,10 +1,10 @@
 #####################
 ## R source to first pair assignment
 ## Dan Murphy & Paulo Kalkhake
-## Last update: 3 October 2016
+## Last update: 11 November 2016
 ## R version 3.3.1 (2016-06-21) -- "Bug in Your Hair"
 ## Platform: x86_64-apple-darwin13.4.0 (64-bit)
-## What it does: set working directory & load packages & load datasets
+## What it does: Sets working directory & loads packages and datasets
 ##########################
 
 # remove objects from the specified environment
@@ -22,10 +22,7 @@ library(curl)
 library(rio)
 library(stringr)
 library(plyr)
-library(knitr)
-library(curl)
 library(xml2)
-library(plyr)
 library(DataCombine)
 library(tidyr)
 library(data.table)
@@ -39,6 +36,7 @@ GENESIS_2012 <- read.csv("data/GENESIS_2012.csv", sep=";", quote="\"", stringsAs
 GENESIS_2013 <- read.csv("data/GENESIS_2013.csv", sep=";", quote="\"", stringsAsFactors = FALSE)
 GENESIS_2014 <- read.csv("data/GENESIS_2014.csv", sep=";", quote="\"", stringsAsFactors = FALSE)
 
+#Loading data from the Statistical Office Berlin/Brandenburg
 SBB_2010_2015 <- read.csv("data/SBB_2010_2015.csv", sep=";", stringsAsFactors = FALSE)
 SBB_unemployment <- read.csv2("data/SBB_unemployment.csv", stringsAsFactors = FALSE)
 SBB_HH_Income <- read.csv2("data/SBB_HH_Income.csv", header = FALSE, stringsAsFactors = FALSE)
